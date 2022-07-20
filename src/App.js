@@ -8,8 +8,29 @@ import Card from "./components/Card/Card";
 import Pagination from "./components/Pagination/Pagination";
 import Filter from "./components/Filter/Filter";
 import Navbar from "./components/Navbar/Navbar";
+import {rawg} from "./apiKeys";
+
+
 
 function App() {
+
+  let date = new Date();
+  let firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString().slice(0, 10);
+  let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).toISOString().slice(0, 10);
+  let api = `https://api.rawg.io/api/games?key=${rawg}&dates=${firstDay},${lastDay}&page=2`
+
+  let [fetchedData, updateFetchedData] = useState([]);
+  let { next, prev, results } = fetchedData;
+
+  useEffect(() => {
+    (async function () {
+      let data = await fetch(api).then((res) => res.json());
+      updateFetchedData(data);
+    })();
+  }, [api]);
+
+  
+
   return (
     <div className="App">
       <h1 className="text-center mb-3">Games</h1>
