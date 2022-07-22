@@ -21,7 +21,7 @@ function App() {
 
   let [fetchedData, updateFetchedData] = useState([]);
   let { next, prev, results } = fetchedData;
-
+  console.log(fetchedData)
   useEffect(() => {
     (async function () {
       let data = await fetch(api).then((res) => res.json());
@@ -39,7 +39,7 @@ function App() {
           Filter component will be placed here
           <div className="col-lg-8 col-12">
             <div className="row">
-              Card component will be placed here
+              <Card results={results} />
             </div>
           </div>
         </div>
