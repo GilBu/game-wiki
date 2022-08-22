@@ -17,11 +17,16 @@ function App() {
   let date = new Date();
   let firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString().slice(0, 10);
   let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).toISOString().slice(0, 10);
-  let api = `https://api.rawg.io/api/games?key=${rawg}&dates=${firstDay},${lastDay}&page=2`
-
+  
   let [fetchedData, updateFetchedData] = useState([]);
-  let { next, prev, results } = fetchedData;
-  console.log(fetchedData)
+  let { count, next, prev, results } = fetchedData;
+  let pages = Math.ceil(count / results.length)
+  let info = { count, next, pages, prev}
+  let [pageNumber, updatePageNumber] = useState(1);
+  let [search, setSearch] = useState("");
+  
+  let api = `https://api.rawg.io/api/games?key=${rawg}&page=${pageNumber}&search=${search}&ordering=-metacritic&tags=jrpg`
+
   useEffect(() => {
     (async function () {
       let data = await fetch(api).then((res) => res.json());
@@ -34,6 +39,7 @@ function App() {
   return (
     <div className="App">
       <h1 className="text-center mb-3">Games</h1>
+      <Search setSearch={setSearch} updatePageNumber={updatePageNumber} />
       <div className="container">
         <div className="row">
           Filter component will be placed here
@@ -44,6 +50,11 @@ function App() {
           </div>
         </div>
       </div>
+      <Pagination
+        info={info}
+        pageNumber={pageNumber}
+        updatePageNumber={updatePageNumber}
+      />
     </div>
   );
 }

@@ -22,6 +22,7 @@ const Card = ({ results }) => {
               <div className="">
                 {/* <div className="fs-6 fw-normal">{platforms}</div> */}
                 <div className="fs-5">{metacritic}</div>
+                <div className="fs-5">{released}</div>
               </div>
             </div>
 
