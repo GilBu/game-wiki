@@ -28,12 +28,12 @@ function App() {
   let [search, setSearch] = useState("");
 
   let [genres, updateGenres] = useState("1,2,3,4,5,6,7,8,9,10")
-  let [metacritic, updateMetacritic] = useState("")
-  let [plaforms, updatePlaforms] = useState("")
-  let [released, updateReleased] = useState("")
-  let [tags, updateTags] = useState("")   
+  let [metacritic, updateMetacritic] = useState("") //80,100
+  let [platforms, updatePlatforms] = useState("")
+  let [dates, updateDates] = useState("") //2022-01-01,2022-12-31
+  let [tags, updateTags] = useState("jrpg")   
   
-  let api = `https://api.rawg.io/api/games?key=${rawg}&page=${pageNumber}&search=${search}&genres=${genres}&metacritic=${metacritic}&plaforms=${plaforms}&released=${released}`
+  let api = `https://api.rawg.io/api/games?key=${rawg}&dates=${dates}&page=${pageNumber}&search=${search}&genres=${genres}&metacritic=${metacritic}&plaforms=${platforms}&ordering=-metacritic`
 
   useEffect(() => {
     (async function () {
@@ -50,7 +50,20 @@ function App() {
       <Search setSearch={setSearch} updatePageNumber={updatePageNumber} />
       <div className="container">
         <div className="row">
-          Filter component will be placed here
+          <Filter
+            pageNumber={pageNumber}
+            genres={genres}
+            metacritic={metacritic}
+            platforms={platforms}
+            dates={dates}
+            tags={tags}
+            updatePageNumber={updatePageNumber}
+            updateGenres={updateGenres}
+            updateMetacritic={updateMetacritic}
+            updatePlatforms={updatePlatforms}
+            updateDates={updateDates}
+            updateTags={updateTags}
+          />
           <div className="col-lg-8 col-12">
             <div className="row">
               <Card results={results} />
