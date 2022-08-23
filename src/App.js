@@ -20,12 +20,20 @@ function App() {
   
   let [fetchedData, updateFetchedData] = useState([]);
   let { count, next, prev, results } = fetchedData;
-  let pages = Math.ceil(count / results.length)
+
+  let pages = results ? Math.ceil(count / results.length) : 1
   let info = { count, next, pages, prev}
   let [pageNumber, updatePageNumber] = useState(1);
+
   let [search, setSearch] = useState("");
+
+  let [genres, updateGenres] = useState("1,2,3,4,5,6,7,8,9,10")
+  let [metacritic, updateMetacritic] = useState("")
+  let [plaforms, updatePlaforms] = useState("")
+  let [released, updateReleased] = useState("")
+  let [tags, updateTags] = useState("")   
   
-  let api = `https://api.rawg.io/api/games?key=${rawg}&page=${pageNumber}&search=${search}&ordering=-metacritic&tags=jrpg`
+  let api = `https://api.rawg.io/api/games?key=${rawg}&page=${pageNumber}&search=${search}&genres=${genres}&metacritic=${metacritic}&plaforms=${plaforms}&released=${released}`
 
   useEffect(() => {
     (async function () {
@@ -34,7 +42,7 @@ function App() {
     })();
   }, [api]);
 
-  
+  console.log(fetchedData)
 
   return (
     <div className="App">
