@@ -22,7 +22,7 @@ const Filter = ({
 
   let clear = () => {
     updatePageNumber(1)
-    updateGenres("1,2,3,4,5,6,7,8,9,10")
+    updateGenres("action, strategy, role-playing-games-rpg, shooter, adventure, puzzle, racing, sports")
     updateMetacritic("")
     updatePlaforms("")
     updateDates("")
@@ -39,6 +39,10 @@ const Filter = ({
           > Clear Filters</div>
           <div className="accordion" id="accordionExample">
             {/* Category components here*/}
+            <Genres
+              updatePageNumber={updatePageNumber}
+              updateGenres={updateGenres}
+            />
           </div>
       </div>
     </div>
