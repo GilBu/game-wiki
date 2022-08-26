@@ -1,7 +1,6 @@
 import FilterBTN from "../FilterBTN"
 
-const Genres = ({ updateGenres, updatePageNumber }) => {
-  let genres = ['action', 'strategy', 'role-playing-games-rpg', 'shooter', 'adventure', 'puzzle', 'racing', 'sports']
+const Genres = ({ updateGenres, updatePageNumber, listOfGenres }) => {
   return (
     <div className="accordion-item">
       <h2 className="accordion-header" id="headingOne">
@@ -16,7 +15,7 @@ const Genres = ({ updateGenres, updatePageNumber }) => {
         aria-labelledby="headingOne" data-bs-parent="#accordionExample"
       >
         <div className="accordion-body d flex flex-wrap gap-3">
-          {genres.map((item, index) => (
+          {listOfGenres.map((item, index) => (
             <FilterBTN
               key={index}
               index={index}

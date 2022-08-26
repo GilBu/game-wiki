@@ -18,11 +18,12 @@ const Filter = ({
   updatePlaforms,
   updateDates,
   updateTags,
+  listOfGenres,
 }) => {
 
   let clear = () => {
     updatePageNumber(1)
-    updateGenres("action, strategy, role-playing-games-rpg, shooter, adventure, puzzle, racing, sports")
+    updateGenres(listOfGenres)
     updateMetacritic("")
     updatePlaforms("")
     updateDates("")
@@ -42,6 +43,7 @@ const Filter = ({
             <Genres
               updatePageNumber={updatePageNumber}
               updateGenres={updateGenres}
+              listOfGenres={listOfGenres}
             />
           </div>
       </div>

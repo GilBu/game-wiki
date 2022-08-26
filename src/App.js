@@ -14,6 +14,81 @@ import {rawg} from "./apiKeys";
 
 function App() {
 
+  let listOfPlatforms = [
+    "pc",
+    "playstation5",
+    "xbox-one",
+    "playstation4",
+    "xbox-series-x",
+    "nintendo-switch",
+    "ios",
+    "android",
+    "nintendo-3ds",
+    "nintendo-ds",
+    "nintendo-dsi",
+    "macos",
+    "linux",
+    "xbox360",
+    "xbox-old",
+    "playstation3",
+    "playstation2",
+    "playstation1",
+    "ps-vita",
+    "psp",
+    "wii-u",
+    "wii",
+    "gamecube",
+    "nintendo-64",
+    "game-boy-advance",
+    "game-boy-color",
+    "game-boy",
+    "snes",
+    "nes",
+    "macintosh",
+    "apple-ii",
+    "commodore-amiga",
+    "atari-7800",
+    "atari-5200",
+    "atari-2600",
+    "atari-flashback",
+    "atari-8-bit",
+    "atari-st",
+    "atari-lynx",
+    "atari-xegs",
+    "genesis",
+    "sega-saturn",
+    "sega-cd",
+    "sega-32x",
+    "sega-master-system",
+    "dreamcast",
+    "3do",
+    "jaguar",
+    "game-gear",
+    "neogeo"
+  ]
+
+  let listOfGenres = [
+    "action",
+    "indie",
+    "adventure",
+    "role-playing-games-rpg",
+    "strategy",
+    "shooter",
+    "casual",
+    "simulation",
+    "puzzle",
+    "arcade",
+    "platformer",
+    "racing",
+    "massively-multiplayer",
+    "sports",
+    "fighting",
+    "family",
+    "board-games",
+    "educational",
+    "card"
+  ]
+
   let date = new Date();
   let firstDay = new Date(date.getFullYear(), date.getMonth(), 1).toISOString().slice(0, 10);
   let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).toISOString().slice(0, 10);
@@ -27,22 +102,20 @@ function App() {
 
   let [search, setSearch] = useState("");
 
-  let [genres, updateGenres] = useState("1,2,3,4,5,6,7,8,9,10")
+  let [genres, updateGenres] = useState(listOfGenres)
   let [metacritic, updateMetacritic] = useState("") //80,100
-  let [platforms, updatePlatforms] = useState("")
+  let [platforms, updatePlatforms] = useState(listOfPlatforms)
   let [dates, updateDates] = useState("") //2022-01-01,2022-12-31
   let [tags, updateTags] = useState("jrpg")   
   
   let api = `https://api.rawg.io/api/games?key=${rawg}&dates=${dates}&page=${pageNumber}&search=${search}&genres=${genres}&metacritic=${metacritic}&plaforms=${platforms}&ordering=-metacritic`
-
+  
   useEffect(() => {
     (async function () {
       let data = await fetch(api).then((res) => res.json());
       updateFetchedData(data);
     })();
   }, [api]);
-
-  console.log(fetchedData)
 
   return (
     <div className="App">
@@ -63,6 +136,7 @@ function App() {
             updatePlatforms={updatePlatforms}
             updateDates={updateDates}
             updateTags={updateTags}
+            listOfGenres={listOfGenres}
           />
           <div className="col-lg-8 col-12">
             <div className="row">
