@@ -17,7 +17,12 @@ const FilterBTN = ({ input, task, updatePageNumber, index, name }) => {
         />
         <label
           onClick={(x) => {
-            task(input); updatePageNumber(1);
+            if(name==="platforms"){
+              task(index);
+            } else {
+              task(input);
+            }
+              updatePageNumber(1);
 
           }}
           className="btn btn-outline-primary"

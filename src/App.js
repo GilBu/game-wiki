@@ -64,7 +64,7 @@ function App() {
     "3do",
     "jaguar",
     "game-gear",
-    "neogeo"
+    "neogeo",
   ]
 
   let listOfGenres = [
@@ -108,7 +108,7 @@ function App() {
   let [dates, updateDates] = useState("") //2022-01-01,2022-12-31
   let [tags, updateTags] = useState("jrpg")   
   
-  let api = `https://api.rawg.io/api/games?key=${rawg}&dates=${dates}&page=${pageNumber}&search=${search}&genres=${genres}&metacritic=${metacritic}&plaforms=${platforms}&ordering=-metacritic`
+  let api = `https://api.rawg.io/api/games?key=${rawg}&dates=${dates}&page=${pageNumber}&search=${search}&genres=${genres}&metacritic=${metacritic}&platforms=${platforms}&ordering=-metacritic`
   
   useEffect(() => {
     (async function () {
@@ -137,6 +137,7 @@ function App() {
             updateDates={updateDates}
             updateTags={updateTags}
             listOfGenres={listOfGenres}
+            listOfPlatforms={listOfPlatforms}
           />
           <div className="col-lg-8 col-12">
             <div className="row">

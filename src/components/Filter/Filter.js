@@ -15,17 +15,18 @@ const Filter = ({
   updatePageNumber,
   updateGenres,
   updateMetacritic,
-  updatePlaforms,
+  updatePlatforms,
   updateDates,
   updateTags,
   listOfGenres,
+  listOfPlatforms,
 }) => {
 
   let clear = () => {
     updatePageNumber(1)
     updateGenres(listOfGenres)
     updateMetacritic("")
-    updatePlaforms("")
+    updatePlatforms("")
     updateDates("")
     updateTags("")
     window.location.reload(false)
@@ -44,6 +45,15 @@ const Filter = ({
               updatePageNumber={updatePageNumber}
               updateGenres={updateGenres}
               listOfGenres={listOfGenres}
+            />
+            <Metacritic
+              updatePageNumber={updatePageNumber}
+              updateMetacritic={updateMetacritic}
+            />
+            <Platforms
+              updatePageNumber={updatePageNumber}
+              updatePlatforms={updatePlatforms}
+              listOfPlatforms={listOfPlatforms}
             />
           </div>
       </div>
