@@ -104,7 +104,7 @@ function App() {
 
   let [genres, updateGenres] = useState(listOfGenres)
   let [metacritic, updateMetacritic] = useState("") //80,100
-  let [platforms, updatePlatforms] = useState(listOfPlatforms)
+  let [platforms, updatePlatforms] = useState([...listOfPlatforms.keys()])
   let [dates, updateDates] = useState("") //2022-01-01,2022-12-31
   let [tags, updateTags] = useState("jrpg")   
   

@@ -2,7 +2,7 @@ import React from "react"
 import Genres from "./category/Genres"
 import Metacritic from "./category/Metacritic"
 import Platforms from "./category/Platforms"
-import Released from "./category/Released"
+import Dates from "./category/Dates"
 import Tags from "./category/Tags"
 
 const Filter = ({
@@ -26,7 +26,7 @@ const Filter = ({
     updatePageNumber(1)
     updateGenres(listOfGenres)
     updateMetacritic("")
-    updatePlatforms("")
+    updatePlatforms([...listOfPlatforms.keys()])
     updateDates("")
     updateTags("")
     window.location.reload(false)
@@ -54,6 +54,10 @@ const Filter = ({
               updatePageNumber={updatePageNumber}
               updatePlatforms={updatePlatforms}
               listOfPlatforms={listOfPlatforms}
+            />
+            <Dates
+              updatePageNumber={updatePageNumber}
+              updateDates={updateDates}
             />
           </div>
       </div>
