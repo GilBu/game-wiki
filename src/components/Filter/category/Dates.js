@@ -16,6 +16,7 @@ const Dates = ({ updateDates, updatePageNumber }) => {
         aria-labelledby="headingOne" data-bs-parent="#accordionExample"
       >
         <div className="accordion-body d flex flex-wrap gap-3">
+          {/* TODO: replace with date picker */}
           {listOfDates.map((item, index) => (
             <FilterBTN
               key={index}
