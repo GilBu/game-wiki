@@ -6,7 +6,7 @@ const Genres = ({ updateGenres, updatePageNumber, listOfGenres }) => {
       <h2 className="accordion-header" id="headingOne">
         <button
           className="accordion-button" type="button"
-          data-bs-toggle="collapes" data-bs-target="#collapseOne"
+          data-bs-toggle="collapse" data-bs-target="#collapseOne"
           aria-expanded="true" aria-controls="collapseOne"
         > Genres </button>
       </h2>
@@ -14,7 +14,7 @@ const Genres = ({ updateGenres, updatePageNumber, listOfGenres }) => {
         id="collapseOne" className="accordion-collapse collapse show"
         aria-labelledby="headingOne" data-bs-parent="#accordionExample"
       >
-        <div className="accordion-body d flex flex-wrap gap-3">
+        <div className="accordion-body d-flex flex-wrap gap-3">
           {listOfGenres.map((item, index) => (
             <FilterBTN
               key={index}

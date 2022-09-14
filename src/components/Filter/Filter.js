@@ -33,15 +33,18 @@ const Filter = ({
   }
 
   return (
-    <div className="col-lg-=3 col-12 mb-5">
-      <div className="text-primary text-decoration-underline text-center mb-3">
-        <div
-          style={{ cursor: "pointer" }} onClick={clear}
-          className="text-primary text-decoration-underline text-center mb-3"
-          > Clear Filters</div>
-          <div className="accordion" id="accordionExample">
-            {/* Category components here*/}
-            <Genres
+    <div className="col-lg-3 col-12 mb-5">
+      <div className="text-center fw-bold fs-4 mb-2">Filters</div>
+      <div
+        style={{ cursor: "pointer" }}
+        onClick={clear}
+        className="text-primary text-decoration-underline text-center mb-3"
+      >
+        Clear Filters
+      </div>
+      <div className="accordion" id="accordionExample">
+        {/* Category components here*/}
+        <Genres
               updatePageNumber={updatePageNumber}
               updateGenres={updateGenres}
               listOfGenres={listOfGenres}
@@ -59,7 +62,6 @@ const Filter = ({
               updatePageNumber={updatePageNumber}
               updateDates={updateDates}
             />
-          </div>
       </div>
     </div>
   )
