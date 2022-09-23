@@ -127,7 +127,7 @@ const Home = () => {
   let [dates, updateDates] = useState("") //2022-01-01,2022-12-31
   let [tags, updateTags] = useState("jrpg")
 
-  let api = `https://api.rawg.io/api/games?key=${rawg}&dates=${dates}&page=${pageNumber}&search=${search}&genres=${genres}&metacritic=${metacritic}&platforms=${platforms}&ordering=-metacritic&tags=${tags}`
+  let api = `https://api.rawg.io/api/games?key=${rawg}&dates=${dates}&page=${pageNumber}&search=${search}&genres=${genres}&metacritic=${metacritic}&platforms=${platforms}&ordering=-metacritic`
 
   useEffect(() => {
     (async function () {
@@ -135,7 +135,7 @@ const Home = () => {
       updateFetchedData(data);
     })();
   }, [api]);
-
+  
   return (
     <div className="App">
       <h1 className="text-center mb-3">Games</h1>
