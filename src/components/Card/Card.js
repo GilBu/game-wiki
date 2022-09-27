@@ -5,7 +5,7 @@ const Card = ({ results }) => {
 
   if (results) {
     display = results.map((x) => {
-      let { slug, name, platforms, stores, released, background_image, metacritic, tags, esrb_rating, parent_platforms, genres} = x
+      let { slug, name, platforms, stores, released, background_image, metacritic, tags, esrb_rating, parent_platforms, genres, games_count} = x
       
       return (
         <div
@@ -21,8 +21,9 @@ const Card = ({ results }) => {
               <div className="fs-5 fw-bold mb-4">{name}</div>
               <div className="">
                 {/* <div className="fs-6 fw-normal">{platforms}</div> */}
-                <div className="fs-5">{metacritic}</div>
+                <div className="fs-5">MetaCritic Score: {metacritic}</div>
                 <div className="fs-5">{released}</div>
+                <div className="fs-5">Games Created: {games_count}</div>
               </div>
             </div>
 
