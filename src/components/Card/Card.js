@@ -5,7 +5,7 @@ const Card = ({ results }) => {
 
   if (results) {
     display = results.map((x) => {
-      let { slug, name, platforms, stores, released, background_image, metacritic, tags, esrb_rating, parent_platforms, genres, games_count} = x
+      let { slug, name, platforms, stores, released, background_image, metacritic, tags, esrb_rating, parent_platforms, genres, games_count, image_background} = x
       
       return (
         <div
@@ -16,14 +16,15 @@ const Card = ({ results }) => {
             key={slug}
             className={`${styles.card} d-flex flex-column justify-content-center`}
           >
-            <img className={`${styles.img} img-fluid`} src={background_image} alt="" />
+            <img className={`${styles.img} img-fluid`} src={background_image || image_background} alt="" />
             <div className={`${styles.content}`}>
               <div className="fs-5 fw-bold mb-4">{name}</div>
               <div className="">
                 {/* <div className="fs-6 fw-normal">{platforms}</div> */}
-                <div className="fs-5">MetaCritic Score: {metacritic}</div>
-                <div className="fs-5">{released}</div>
-                <div className="fs-5">Games Created: {games_count}</div>
+                {metacritic ? <div className="fs-5">MetaCritic Score: {metacritic}</div> : null}
+                {released ? <div className="fs-5">{released}</div> : null}
+                
+                {games_count ? <div className="fs-5">Games Created: {games_count}</div> : null}
               </div>
             </div>
 
