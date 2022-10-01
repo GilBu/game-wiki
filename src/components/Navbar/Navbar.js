@@ -32,7 +32,7 @@ const Navbar = () => {
           id="navbarNavAltMarkup"
         >
           <div className="navbar-nav fs-5">
-            <NavLink to="/" className="nav-link">
+            <NavLink to="/games" className="nav-link">
               Games
             </NavLink>
             <NavLink to="/creators" className="nav-link">

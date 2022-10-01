@@ -12,6 +12,7 @@ import {rawg} from "./apiKeys";
 import Creators from "./Pages/Creators";
 import Developers from "./Pages/Developers";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CardDetails from "./components/Card/CardDetails"
 
 function App() {
   return (
@@ -21,10 +22,11 @@ function App() {
       </div>
       <Routes>
         <Route path='/' element={<Home />} />
-
+        <Route path='/games' element={<Home />} />
         <Route path="/creators" element={<Creators />} />
 
         <Route path="/developers" element={<Developers />} />
+        <Route path="/games/:id" element={<CardDetails />} />
       </Routes>
     </Router>
   );
@@ -160,7 +162,7 @@ const Home = () => {
           />
           <div className="col-lg-8 col-12">
             <div className="row">
-              <Card results={results} />
+              <Card page='/games/' results={results} />
             </div>
           </div>
         </div>

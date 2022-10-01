@@ -12,7 +12,7 @@ const Creators = () => {
   let info = { count, next, pages, prev }
   let [pageNumber, updatePageNumber] = useState(1);
 
-  let [search, setSearch] = useState("");  let [id, setID] = useState(1)
+  let [search, setSearch] = useState("");
   let api = `https://api.rawg.io/api/creators?key=${rawg}&page=${pageNumber}&search=${search}`
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Creators = () => {
          
           <div className="col-lg-8 col-12">
             <div className="row">
-              <Card results={results} />
+              <Card page='/creators/'results={results} />
             </div>
           </div>
         </div>
