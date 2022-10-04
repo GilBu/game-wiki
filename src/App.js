@@ -26,7 +26,8 @@ function App() {
         <Route path="/creators" element={<Creators />} />
 
         <Route path="/developers" element={<Developers />} />
-        <Route path="/games/:id" element={<CardDetails />} />
+        <Route path="/games/:id" element={<CardDetails page='games'/>} />
+        <Route path="/creators/:id" element={<CardDetails page='creators'/>} />
       </Routes>
     </Router>
   );

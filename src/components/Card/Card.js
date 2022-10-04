@@ -7,7 +7,7 @@ const Card = ({ page, results }) => {
 
   if (results) {
     display = results.map((x) => {
-      let { id, slug, name, platforms, stores, released, background_image, metacritic, tags, esrb_rating, parent_platforms, genres, games_count, image_background} = x
+      let { id, slug, name, platforms, stores, released, background_image, metacritic, tags, esrb_rating, parent_platforms, genres, games_count, image} = x
       
       return (
         <Link
@@ -24,7 +24,7 @@ const Card = ({ page, results }) => {
               key={slug}
               className={`${styles.card} d-flex flex-column justify-content-center`}
             >
-              <img className={`${styles.img} img-fluid`} src={background_image || image_background} alt="" />
+              <img className={`${styles.img} img-fluid`} src={background_image || image} alt="" />
               <div className={`${styles.content}`}>
                 <div className="fs-5 fw-bold mb-4">{name}</div>
                 <div className="">
