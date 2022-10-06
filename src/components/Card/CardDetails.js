@@ -38,6 +38,10 @@ const CardDetails = ({page}) => {
     })()
   }, [api])
 
+  let positionList = positions ? positions.map(position => 
+      <li>{position.name}</li>
+  ) : null
+  console.log(positionList)
   return (
     <div className="container d-flex justify-content-center mb-5">
       <div className="d-flex flex-column gap-3">
@@ -59,6 +63,7 @@ const CardDetails = ({page}) => {
         {esrb_rating ? <div className="fs-5">ESRB: {esrb_rating.name}</div> : null}
         {/* {platforms ? <div className="fs-5">{platforms}</div> : null} */}
         {games_count ? <div className="fs-5">Games Count: {games_count}</div> : null}
+        {positions ? <ul>{positionList}</ul> : null}
       </div>
     </div>
   )
